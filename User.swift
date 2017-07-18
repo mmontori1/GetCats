@@ -6,14 +6,6 @@
 //  Copyright © 2017 Mariano Montori. All rights reserved.
 //
 
-//
-//  User.swift
-//
-//
-//  Created by Mariano Montori on 7/6/17.
-//
-//
-
 import Foundation
 import UIKit
 import FirebaseDatabase.FIRDataSnapshot

@@ -18,11 +18,12 @@ class ProfileHeaderView: UICollectionReusableView {
         super.awakeFromNib()
         
         catOfDayButton.layer.cornerRadius = 10
-//        catOfDayButton.layer.borderColor = UIColor.lightGray.cgColor
-//        catOfDayButton.layer.borderWidth = 1
     }
 
     @IBAction func catOfDayClicked(_ sender: UIButton) {
         print("cat image appear!")
+        RedditService.retreiveCatImage(completion: { (cat) in
+//            self.catGoldCountLabel.text = cat
+        })
     }
 }
