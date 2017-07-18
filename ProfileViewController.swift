@@ -76,9 +76,8 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
         
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ProfileHeaderView", for: indexPath) as! ProfileHeaderView
         
-        headerView.usernameLabel.text = "mmontori"
+        headerView.usernameLabel.text = User.current.username
         headerView.catGoldCountLabel.text = "30"
-        headerView.catOfDayButton.layer.cornerRadius = 4
         return headerView
     }
 }

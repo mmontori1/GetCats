@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CoreData
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
+        configureInitialRootViewController(for: window)
+
         return true
     }
 
@@ -41,11 +44,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
-        self.saveContext()
+        // self.saveContext()
     }
 
     // MARK: - Core Data stack
-
+    /*
     lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
@@ -88,6 +91,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    */
 
 }
 
+extension AppDelegate {
+    func configureInitialRootViewController(for window: UIWindow?) {
+        let defaults = UserDefaults.standard
+        let initialViewController: UIViewController
+        
+        if Auth.auth().currentUser != nil,
+            let userData = defaults.object(forKey: "currentUser") as? Data,
+            let user = NSKeyedUnarchiver.unarchiveObject(with: userData) as? User {
+            
+            User.setCurrent(user)
+            
+            initialViewController = UIStoryboard.initialViewController(for: .main)
+        }
+        else {
+            initialViewController = UIStoryboard.initialViewController(for: .login)
+        }
+        
+        window?.rootViewController = initialViewController
+        window?.makeKeyAndVisible()
+    }
+}
