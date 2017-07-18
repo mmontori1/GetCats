@@ -10,20 +10,21 @@ import UIKit
 import FirebaseAuth
 import FirebaseAuthUI
 import FirebaseDatabase
+import SwiftGifOrigin
 
 typealias FIRUser = FirebaseAuth.User
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.imageView.image = UIImage.gif(name: "catDance")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func loginClicked(_ sender: Any) {
@@ -48,7 +49,6 @@ extension LoginViewController: FUIAuthDelegate {
             else { return }
         
         UserService.show(forUID: user.uid) { (user) in
-            // handle existing user
             if let user = user {
                 User.setCurrent(user, writeToUserDefaults: true)
                 
@@ -56,7 +56,6 @@ extension LoginViewController: FUIAuthDelegate {
                 self.view.window?.rootViewController = initialViewController
                 self.view.window?.makeKeyAndVisible()
             }
-                // handle new user
             else {
                 self.performSegue(withIdentifier: "toCreateUsername", sender: self)
             }

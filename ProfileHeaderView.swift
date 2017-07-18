@@ -19,11 +19,4 @@ class ProfileHeaderView: UICollectionReusableView {
         
         catOfDayButton.layer.cornerRadius = 10
     }
-
-    @IBAction func catOfDayClicked(_ sender: UIButton) {
-        print("cat image appear!")
-        RedditService.retreiveCatImage(completion: { (cat) in
-//            self.catGoldCountLabel.text = cat
-        })
-    }
 }

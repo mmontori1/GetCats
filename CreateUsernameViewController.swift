@@ -12,17 +12,16 @@ import FirebaseDatabase
 
 class CreateUsernameViewController: UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var usernameTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.imageView.image = UIImage.gif(name: "catRun")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func createClicked(_ sender: UIButton) {
@@ -32,7 +31,6 @@ class CreateUsernameViewController: UIViewController {
         
         UserService.create(firUser, username: username) { (user) in
             guard let user = user else {
-                // handle error
                 return
             }
             

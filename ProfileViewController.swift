@@ -22,6 +22,11 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func catOfDayClicked(_ sender: UIButton) {
+        RedditService.retreiveCatImage(completion: { (cat) in
+
+        })
+    }
 
     /*
     // MARK: - Navigation
