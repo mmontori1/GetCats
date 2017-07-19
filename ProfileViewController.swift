@@ -7,16 +7,25 @@
 //
 
 import UIKit
+import Kingfisher
+import FirebaseDatabase
 
 class ProfileViewController: UIViewController {
     
     var pictures : [Picture] = []
     var todayPic : Picture?
+//        = nil{
+//        didSet{
+//            collectionView.reloadData()
+//        }
+//    }
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("here")
+        collectionView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,6 +51,22 @@ class ProfileViewController: UIViewController {
                 }
             }
         })
+        let ref = Database.database().reference().child("users").child(User.current.uid).child("todayPic")
+        
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            defer{
+                self.collectionView.reloadData()
+            }
+            guard let todayPic = snapshot.children.allObjects.first as? DataSnapshot else{
+                return
+            }
+            print(snapshot.children.allObjects.first ?? "error!!!")
+            guard let picture = Picture(snapshot: todayPic) else {
+                return
+            }
+            print(picture)
+            self.todayPic = picture
+        })
     }
 }
 
@@ -52,7 +77,11 @@ extension ProfileViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CatImageCell", for: indexPath) as! CatImageCell
-        cell.thumbImageView.backgroundColor = .red
+        if let image = todayPic {
+            print(image.imageURL)
+            let imageURL = URL(string: image.imageURL)
+            cell.thumbImageView.kf.setImage(with: imageURL)
+        }
         
         return cell
     }

@@ -44,7 +44,10 @@ struct PictureService {
         let currentUser = User.current
         let rootRef =  Database.database().reference()
         let pictureRef = rootRef.child("users").child(currentUser.uid).child("pictures").child(redditUID)
+        let todayRef = rootRef.child("users").child(currentUser.uid).child("todayPic")
         let picture = Picture(imageURL: urlString, imageHeight: aspectHeight)
         pictureRef.updateChildValues(picture.dictValue)
+        todayRef.setValue(nil)
+        todayRef.child(redditUID).setValue(picture.dictValue)
     }
 }

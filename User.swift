@@ -14,23 +14,34 @@ class User : NSObject {
     let uid : String
     let username : String
 //    let pictures : [Picture]
-//    let todayPic : Picture?
+//    var todayPic : Picture?
     
     init(uid: String, username: String) {
         self.uid = uid
         self.username = username
+//        self.pictures = []
+//        self.todayPic = nil
         super.init()
-        
     }
     
     init?(snapshot: DataSnapshot) {
         guard let dict = snapshot.value as? [String : Any],
         let username = dict["username"] as? String
+//        let todayPics = dict["todayPic"] as? [String : Any]
+//        let picturesDict = dict["pictures"] as? [String : Any]
             else { return nil }
-        
+//                guard let post = Picture(snapshot: pictures.child)
+//                    else { return nil }
+//        } else { return nil }
+//        let pictures = dict["pictures"] as? [String : Any],
+//        for pic in todayPics.values {
+//            print(pic)
+//            self.todayPic = nil
+//            self.todayPic = Picture(imageURL: pic["imageURL"] as? String, imageHeight: pic["imageHeight"] as? String)
+//        }
         self.uid = snapshot.key
         self.username = username
-        
+//        self.pictures = Array(picturesDict.keys)
         super.init()
     }
     
