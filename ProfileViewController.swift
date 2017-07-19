@@ -9,35 +9,36 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+    
+    var pictures : [Picture] = []
+    var todayPic : Picture?
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func catOfDayClicked(_ sender: UIButton) {
         RedditService.retreiveCatImage(completion: { (cat) in
-
+            if let urlString = cat {
+                do {
+                    let url = URL(string: urlString)
+                    let  data = try Data(contentsOf: url!)
+                    if let image = UIImage(data: data){
+                        PictureService.create(for: image)
+                    }
+                }
+                catch let error as NSError{
+                    print(error.localizedDescription)
+                }
+            }
         })
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension ProfileViewController: UICollectionViewDataSource {

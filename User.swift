@@ -11,9 +11,8 @@ import UIKit
 import FirebaseDatabase.FIRDataSnapshot
 
 class User : NSObject {
-    let uid: String
-    let username: String
-    
+    let uid : String
+    let username : String
     
     init(uid: String, username: String) {
         self.uid = uid
