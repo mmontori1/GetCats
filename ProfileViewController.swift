@@ -24,13 +24,17 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func catOfDayClicked(_ sender: UIButton) {
-        RedditService.retreiveCatImage(completion: { (cat) in
-            if let urlString = cat {
+        RedditService.retreiveCatImage(completion: { (urlString, redditUID) in
+            if let urlString = urlString,
+               let redditUID = redditUID {
                 do {
                     let url = URL(string: urlString)
                     let  data = try Data(contentsOf: url!)
                     if let image = UIImage(data: data){
-                        PictureService.create(for: image)
+                        PictureService.create(for: image, uid: redditUID)
+                    }
+                    else {
+                        print("IMGUR U POOP")
                     }
                 }
                 catch let error as NSError{

@@ -13,6 +13,8 @@ import FirebaseDatabase.FIRDataSnapshot
 class User : NSObject {
     let uid : String
     let username : String
+//    let pictures : [Picture]
+//    let todayPic : Picture?
     
     init(uid: String, username: String) {
         self.uid = uid

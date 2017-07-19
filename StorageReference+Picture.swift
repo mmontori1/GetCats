@@ -10,12 +10,12 @@ import Foundation
 import FirebaseStorage
 
 extension StorageReference {
-    static let dateFormatter = ISO8601DateFormatter()
+//    static let dateFormatter = ISO8601DateFormatter()
     
-    static func newPostImageReference() -> StorageReference {
+    static func newPostImageReference(redditUID: String) -> StorageReference {
         let uid = User.current.uid
-        let timestamp = dateFormatter.string(from: Date())
+//        let timestamp = dateFormatter.string(from: Date())
         
-        return Storage.storage().reference().child("images/\(uid)/\(timestamp).jpg")
+        return Storage.storage().reference().child("images/\(uid)/\(redditUID).jpg")
     }
 }

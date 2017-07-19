@@ -12,8 +12,8 @@ import FirebaseDatabase
 import FirebaseStorage
 
 struct PictureService {
-    static func create(for image: UIImage) {
-        let imageRef = StorageReference.newPostImageReference()
+    static func create(for image: UIImage, uid : String) {
+        let imageRef = StorageReference.newPostImageReference(redditUID: uid)
         uploadImage(image, at: imageRef) { (downloadURL) in
             guard let downloadURL = downloadURL else {
                 return
@@ -21,7 +21,7 @@ struct PictureService {
             
             let urlString = downloadURL.absoluteString
             let aspectHeight = image.aspectHeight
-            create(forURLString: urlString, aspectHeight: aspectHeight)
+            create(forURLString: urlString, aspectHeight: aspectHeight, redditUID: uid)
         }
     }
     
@@ -40,13 +40,11 @@ struct PictureService {
         })
     }
     
-    private static func create(forURLString urlString: String, aspectHeight: CGFloat) {
+    private static func create(forURLString urlString: String, aspectHeight: CGFloat, redditUID: String) {
         let currentUser = User.current
-        let post = Picture(imageURL: urlString, imageHeight: aspectHeight)
-//        User.current.pictures.
         let rootRef =  Database.database().reference()
-        let newPostRef = rootRef.child(currentUser.uid).child("pictures").childByAutoId()
-        let newPostKey = newPostRef.key
-        
+        let pictureRef = rootRef.child("users").child(currentUser.uid).child("pictures").child(redditUID)
+        let picture = Picture(imageURL: urlString, imageHeight: aspectHeight)
+        pictureRef.updateChildValues(picture.dictValue)
     }
 }
