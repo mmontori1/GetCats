@@ -25,7 +25,6 @@ struct Picture {
         self.imageURL = imageURL
         self.imageHeight = imageHeight
         self.creationDate = Date()
-//        DateFormatter.localizedString(from: Date(), dateStyle: DateFormatter.Style.medium, timeStyle: DateFormatter.Style.medium)
     }
     
     init?(snapshot: DataSnapshot){

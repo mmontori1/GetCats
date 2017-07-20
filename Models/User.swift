@@ -52,7 +52,6 @@ class User : NSObject {
         }
         print(self.pictures)
         self.todayPic = Picture(imageURL: todayImageURL, imageHeight: todayImageHeight)
-//        super.init()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -62,8 +61,6 @@ class User : NSObject {
         
         self.uid = uid
         self.username = username
-        
-//        super.init()
     }
     
     private static var _current: User?
