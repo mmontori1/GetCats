@@ -25,10 +25,8 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         UserService.show(forUID: User.current.uid) { (user) in
             defer {
-                if let pic = User.current.todayPic {
-                    self.pictures.append(pic)
-                }
-//                self.collectionView.reloadData()
+                print(User.current.pictures)
+                self.pictures = User.current.pictures
             }
             guard let user = user else {
                 return
@@ -60,7 +58,7 @@ class ProfileViewController: UIViewController {
                 }
             }
         })
-        let ref = Database.database().reference().child("users").child(User.current.uid).child("todayPic")
+//        let ref = Database.database().reference().child("users").child(User.current.uid).child("todayPic")
         
 //        ref.observeSingleEvent(of: .value, with: { (snapshot) in
 //            defer{
