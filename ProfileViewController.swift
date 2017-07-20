@@ -12,20 +12,29 @@ import FirebaseDatabase
 
 class ProfileViewController: UIViewController {
     
-    var pictures : [Picture] = []
+    var pictures = [Picture](){
+        didSet{
+            collectionView.reloadData()
+        }
+    }
     var todayPic : Picture?
-//        = nil{
-//        didSet{
-//            collectionView.reloadData()
-//        }
-//    }
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("here")
-        collectionView.reloadData()
+        UserService.show(forUID: User.current.uid) { (user) in
+            defer {
+                if let pic = User.current.todayPic {
+                    self.pictures.append(pic)
+                }
+//                self.collectionView.reloadData()
+            }
+            guard let user = user else {
+                return
+            }
+            User.setCurrent(user)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,36 +62,36 @@ class ProfileViewController: UIViewController {
         })
         let ref = Database.database().reference().child("users").child(User.current.uid).child("todayPic")
         
-        ref.observeSingleEvent(of: .value, with: { (snapshot) in
-            defer{
-                self.collectionView.reloadData()
-            }
-            guard let todayPic = snapshot.children.allObjects.first as? DataSnapshot else{
-                return
-            }
-            print(snapshot.children.allObjects.first ?? "error!!!")
-            guard let picture = Picture(snapshot: todayPic) else {
-                return
-            }
-            print(picture)
-            self.todayPic = picture
-        })
+//        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+//            defer{
+//                self.collectionView.reloadData()
+//            }
+//            guard let todayPic = snapshot.children.allObjects.first as? DataSnapshot else{
+//                return
+//            }
+//            print(snapshot.children.allObjects.first ?? "error!!!")
+//            guard let picture = Picture(snapshot: todayPic) else {
+//                return
+//            }
+//            print(picture)
+//            self.todayPic = picture
+//            self.pictures.append(picture)
+//        })
     }
 }
 
 extension ProfileViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return pictures.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CatImageCell", for: indexPath) as! CatImageCell
-        if let image = todayPic {
-            print(image.imageURL)
-            let imageURL = URL(string: image.imageURL)
-            cell.thumbImageView.kf.setImage(with: imageURL)
-        }
-        
+        let image = pictures[indexPath.row]
+        print(image.imageURL)
+        let imageURL = URL(string: image.imageURL)
+        cell.thumbImageView.kf.setImage(with: imageURL)
+
         return cell
     }
 }
@@ -115,7 +124,7 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ProfileHeaderView", for: indexPath) as! ProfileHeaderView
         
         headerView.usernameLabel.text = User.current.username
-        headerView.catGoldCountLabel.text = "30"
+        headerView.catGoldCountLabel.text = String(pictures.count * 10)
         return headerView
     }
 }

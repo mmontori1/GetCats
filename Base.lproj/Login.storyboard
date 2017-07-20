@@ -31,7 +31,7 @@
                                                 <rect key="frame" x="80" y="50" width="218" height="95"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get Cats" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iY5-Fo-DlW">
-                                                        <rect key="frame" x="27" y="0.0" width="164" height="61"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="218" height="61"/>
                                                         <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="43"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -45,7 +45,7 @@
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="XXJ-Gj-Vcb" firstAttribute="leading" secondItem="YKG-H8-BNh" secondAttribute="leading" id="12I-nk-O0A"/>
-                                                    <constraint firstItem="iY5-Fo-DlW" firstAttribute="leading" secondItem="YKG-H8-BNh" secondAttribute="leading" constant="27" id="WlL-Qr-jCQ"/>
+                                                    <constraint firstItem="iY5-Fo-DlW" firstAttribute="leading" secondItem="YKG-H8-BNh" secondAttribute="leading" id="WlL-Qr-jCQ"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
