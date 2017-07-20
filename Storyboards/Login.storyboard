@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -28,37 +29,40 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="195"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YKG-H8-BNh">
-                                                <rect key="frame" x="80" y="50" width="218" height="95"/>
+                                                <rect key="frame" x="79" y="50" width="217" height="94.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get Cats" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iY5-Fo-DlW">
-                                                        <rect key="frame" x="0.0" y="0.0" width="218" height="61"/>
+                                                        <rect key="frame" x="26.5" y="0.0" width="164.5" height="60.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="164.5" id="e5V-sb-Ldl"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="43"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find and Share Cat Pictures!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXJ-Gj-Vcb">
-                                                        <rect key="frame" x="0.0" y="71" width="218" height="24"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Find and Share Cat Pictures!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXJ-Gj-Vcb">
+                                                        <rect key="frame" x="0.0" y="70.5" width="217" height="24"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="217" id="taV-bQ-aiA"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="XXJ-Gj-Vcb" firstAttribute="leading" secondItem="YKG-H8-BNh" secondAttribute="leading" id="12I-nk-O0A"/>
-                                                    <constraint firstItem="iY5-Fo-DlW" firstAttribute="leading" secondItem="YKG-H8-BNh" secondAttribute="leading" id="WlL-Qr-jCQ"/>
-                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.96862745098039216" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="YKG-H8-BNh" firstAttribute="leading" secondItem="dyL-SK-Tyu" secondAttribute="leading" constant="80" id="Hjn-UY-wbV"/>
-                                            <constraint firstItem="YKG-H8-BNh" firstAttribute="centerY" secondItem="dyL-SK-Tyu" secondAttribute="centerY" id="NOz-9a-jOn"/>
-                                            <constraint firstAttribute="trailing" secondItem="YKG-H8-BNh" secondAttribute="trailing" constant="77" id="iPP-GS-LwA"/>
-                                            <constraint firstItem="YKG-H8-BNh" firstAttribute="top" secondItem="dyL-SK-Tyu" secondAttribute="top" constant="50" id="u8f-Jm-PvD"/>
+                                            <constraint firstItem="YKG-H8-BNh" firstAttribute="centerY" secondItem="dyL-SK-Tyu" secondAttribute="centerY" id="2cq-xI-q1p"/>
+                                            <constraint firstItem="YKG-H8-BNh" firstAttribute="centerX" secondItem="dyL-SK-Tyu" secondAttribute="centerX" id="7F7-xy-jX2"/>
                                         </constraints>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LXo-ac-Lnn">
                                         <rect key="frame" x="57" y="225" width="261" height="261"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="LXo-ac-Lnn" secondAttribute="height" multiplier="1:1" id="2sU-hy-o44"/>
+                                        </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bkJ-2v-jKz">
                                         <rect key="frame" x="114" y="516" width="147" height="36"/>
@@ -116,19 +120,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="621"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="08R-KM-ynQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="195"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OTc-Ku-f2K">
-                                                <rect key="frame" x="15" y="50" width="344" height="95"/>
+                                                <rect key="frame" x="15" y="50" width="344" height="110"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6W-z6-Soy">
-                                                        <rect key="frame" x="4" y="0.0" width="336" height="61"/>
-                                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="43"/>
+                                                        <rect key="frame" x="47" y="0.0" width="250" height="76"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="250" id="ZgL-C2-tOa"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="32"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make a username to share the cats you find!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNq-6w-6oH">
-                                                        <rect key="frame" x="0.0" y="71" width="344" height="24"/>
+                                                        <rect key="frame" x="0.0" y="86" width="344" height="24"/>
                                                         <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -138,19 +145,18 @@
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.96853808240000006" blue="0.35896666770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="OTc-Ku-f2K" firstAttribute="centerY" secondItem="08R-KM-ynQ" secondAttribute="centerY" id="jK0-Tw-FH2"/>
-                                            <constraint firstItem="OTc-Ku-f2K" firstAttribute="top" secondItem="08R-KM-ynQ" secondAttribute="top" constant="50" id="vIR-tI-UZ1"/>
-                                            <constraint firstItem="OTc-Ku-f2K" firstAttribute="centerX" secondItem="08R-KM-ynQ" secondAttribute="centerX" id="wEF-qT-Y5x"/>
+                                            <constraint firstItem="OTc-Ku-f2K" firstAttribute="centerY" secondItem="08R-KM-ynQ" secondAttribute="centerY" id="4Kp-5j-SVk"/>
+                                            <constraint firstAttribute="trailing" secondItem="tNq-6w-6oH" secondAttribute="trailing" constant="16" id="LqN-Mf-WYq"/>
+                                            <constraint firstItem="OTc-Ku-f2K" firstAttribute="centerX" secondItem="08R-KM-ynQ" secondAttribute="centerX" id="N1t-CA-92B"/>
+                                            <constraint firstItem="OTc-Ku-f2K" firstAttribute="top" secondItem="08R-KM-ynQ" secondAttribute="top" constant="50" id="tdY-7o-r8b"/>
+                                            <constraint firstItem="tNq-6w-6oH" firstAttribute="leading" secondItem="08R-KM-ynQ" secondAttribute="leading" constant="15" id="uDH-IP-hyH"/>
                                         </constraints>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SNs-fd-OxL">
-                                        <rect key="frame" x="40" y="220" width="295" height="295"/>
-                                    </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cxi-R3-lgl">
-                                        <rect key="frame" x="111" y="540" width="153" height="81"/>
+                                        <rect key="frame" x="40" y="235" width="295" height="386"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6U2-nd-tJH">
-                                                <rect key="frame" x="0.0" y="0.0" width="153" height="35"/>
+                                                <rect key="frame" x="71" y="0.0" width="153" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="ENn-V3-tfq"/>
                                                     <constraint firstAttribute="height" constant="35" id="ZDz-mk-ZbL"/>
@@ -159,8 +165,11 @@
                                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SNs-fd-OxL">
+                                                <rect key="frame" x="0.0" y="45" width="295" height="295"/>
+                                            </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASl-qV-7Gf">
-                                                <rect key="frame" x="0.0" y="45" width="153" height="36"/>
+                                                <rect key="frame" x="71" y="350" width="153" height="36"/>
                                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="ckx-L6-llA"/>
@@ -181,7 +190,6 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="08R-KM-ynQ" firstAttribute="leading" secondItem="fFK-qe-RaN" secondAttribute="leading" id="TSa-IK-szu"/>
-                                    <constraint firstItem="SNs-fd-OxL" firstAttribute="leading" secondItem="fFK-qe-RaN" secondAttribute="leading" constant="40" id="evH-VW-fxL"/>
                                 </constraints>
                             </stackView>
                         </subviews>

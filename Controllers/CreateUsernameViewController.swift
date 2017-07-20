@@ -17,6 +17,7 @@ class CreateUsernameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        usernameTextField.delegate = self
         self.imageView.image = UIImage.gif(name: "catRun")
     }
 
@@ -40,5 +41,12 @@ class CreateUsernameViewController: UIViewController {
             self.view.window?.rootViewController = initialViewController
             self.view.window?.makeKeyAndVisible()
         }
+    }
+}
+
+extension CreateUsernameViewController : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.usernameTextField.resignFirstResponder()
+        return true
     }
 }
