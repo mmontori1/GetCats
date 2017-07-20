@@ -11,15 +11,17 @@ import UIKit
 import FirebaseDatabase.FIRDataSnapshot
 
 class User : NSObject {
-    let uid: String
-    let username: String
-    
+    let uid : String
+    let username : String
+    var pictures : [Picture] = []
+    var todayPic : Picture?
     
     init(uid: String, username: String) {
         self.uid = uid
         self.username = username
+        self.pictures = []
+        self.todayPic = nil
         super.init()
-        
     }
     
     init?(snapshot: DataSnapshot) {
@@ -30,7 +32,26 @@ class User : NSObject {
         self.uid = snapshot.key
         self.username = username
         
-        super.init()
+        guard let todayPics = dict["todayPic"] as? [String : Any],
+        let todayPic = todayPics.values.first as? [String : Any],
+        let todayImageURL = todayPic["imageURL"] as? String,
+        let todayImageHeight = todayPic["imageHeight"] as? CGFloat,
+        let picturesDict = dict["pictures"] as? [String : [String : Any]]
+            else {
+                self.todayPic = nil
+                return
+            }
+        print(picturesDict)
+        for picture in picturesDict.values {
+            guard let imageURL = picture["imageURL"] as? String,
+                let imageHeight = picture["imageHeight"] as? CGFloat else{
+                continue
+            }
+            let newPicture = Picture(imageURL: imageURL, imageHeight: imageHeight)
+            self.pictures.append(newPicture)
+        }
+        print(self.pictures)
+        self.todayPic = Picture(imageURL: todayImageURL, imageHeight: todayImageHeight)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -40,8 +61,6 @@ class User : NSObject {
         
         self.uid = uid
         self.username = username
-        
-        super.init()
     }
     
     private static var _current: User?

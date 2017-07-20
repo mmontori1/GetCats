@@ -7,48 +7,82 @@
 //
 
 import UIKit
+import Kingfisher
+import FirebaseDatabase
 
 class ProfileViewController: UIViewController {
+    
+    var pictures = [Picture](){
+        didSet{
+            collectionView.reloadData()
+        }
+    }
+    var todayPic : Picture?
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        UserService.show(forUID: User.current.uid) { (user) in
+            defer {
+                self.pictures = User.current.pictures
+            }
+            guard let user = user else {
+                return
+            }
+            User.setCurrent(user)
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func catOfDayClicked(_ sender: UIButton) {
-        RedditService.retreiveCatImage(completion: { (cat) in
-
+        sender.isEnabled = false
+        sender.setTitle("loading...", for: UIControlState.normal)
+        sender.backgroundColor = UIColor.gray
+        RedditService.retreiveCatImage(completion: { (urlString, redditUID) in
+            if let urlString = urlString,
+               let redditUID = redditUID {
+                do {
+                    let url = URL(string: urlString)
+                    let  data = try Data(contentsOf: url!)
+                    if let image = UIImage(data: data){
+                        PictureService.create(for: image, uid: redditUID, success: { (success) in
+                            PictureService.showTodayPic(uid: User.current.uid, completion: { (newPic) in
+                                guard let pic = newPic else {
+                                    return
+                                }
+                                self.pictures.append(pic)
+                                self.collectionView.reloadData()
+                                sender.isEnabled = true
+                                sender.setTitle("Cat Pic of the Day!", for: UIControlState.normal)
+                                sender.backgroundColor = UIColor.blue
+                            })
+                        })
+                    }
+                }
+                catch let error as NSError{
+                    print(error.localizedDescription)
+                }
+            }
         })
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension ProfileViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return pictures.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CatImageCell", for: indexPath) as! CatImageCell
-        cell.thumbImageView.backgroundColor = .red
-        
+        let image = pictures[indexPath.row]
+        print(image.imageURL)
+        let imageURL = URL(string: image.imageURL)
+        cell.thumbImageView.kf.setImage(with: imageURL)
+
         return cell
     }
 }
@@ -81,7 +115,7 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ProfileHeaderView", for: indexPath) as! ProfileHeaderView
         
         headerView.usernameLabel.text = User.current.username
-        headerView.catGoldCountLabel.text = "30"
+        headerView.catGoldCountLabel.text = String(pictures.count * 10)
         return headerView
     }
 }

@@ -82,40 +82,40 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kHs-7J-LjJ">
-                                            <rect key="frame" x="114.5" y="14" width="145" height="93"/>
+                                            <rect key="frame" x="115" y="14" width="144" height="93"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXa-2O-QIa" userLabel="Username">
-                                                    <rect key="frame" x="0.0" y="0.0" width="145" height="21"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="144" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="dWx-GN-xuR"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jV0-9W-aLA">
-                                                    <rect key="frame" x="0.0" y="31" width="145" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="31" width="144" height="24"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Cat Gold: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4z-Et-MpO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="24"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="80" id="yuA-GK-nRx"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DC1-fl-myX">
-                                                            <rect key="frame" x="85" y="0.0" width="30" height="20.5"/>
+                                                            <rect key="frame" x="85" y="0.0" width="29" height="24"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="90" id="dmI-Ny-a3T"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="😸" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ih-Oz-QWZ">
-                                                            <rect key="frame" x="120" y="0.0" width="25" height="20.5"/>
+                                                            <rect key="frame" x="119" y="0.0" width="25" height="24"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="25" id="dNw-bS-r3z"/>
                                                             </constraints>
@@ -126,9 +126,9 @@
                                                     </subviews>
                                                 </stackView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51K-uD-PS2">
-                                                    <rect key="frame" x="0.0" y="61.5" width="145" height="31.5"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
+                                                    <rect key="frame" x="0.0" y="65" width="144" height="28"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="16"/>
                                                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                                     <state key="normal" title="Cat Pic of the Day!">
@@ -144,6 +144,7 @@
                                             </constraints>
                                         </stackView>
                                     </subviews>
+                                    <color key="backgroundColor" red="1" green="0.96862745098039216" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="kHs-7J-LjJ" firstAttribute="top" secondItem="rVr-zd-JtD" secondAttribute="topMargin" constant="6" id="2DU-Dp-0o9"/>
                                         <constraint firstItem="kHs-7J-LjJ" firstAttribute="centerY" secondItem="rVr-zd-JtD" secondAttribute="centerY" id="C1u-Ja-C0I"/>
@@ -151,7 +152,7 @@
                                     </constraints>
                                     <connections>
                                         <outlet property="catGoldCountLabel" destination="DC1-fl-myX" id="dcb-9d-VKf"/>
-                                        <outlet property="catOfDayButton" destination="51K-uD-PS2" id="AIn-6I-rkP"/>
+                                        <outlet property="catOfDayButton" destination="51K-uD-PS2" id="jq5-wl-Gr5"/>
                                         <outlet property="usernameLabel" destination="pXa-2O-QIa" id="8Tj-ae-yE5"/>
                                     </connections>
                                 </collectionReusableView>
