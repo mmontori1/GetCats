@@ -12,16 +12,18 @@ import FirebaseDatabase
 import FirebaseStorage
 
 struct PictureService {
-    static func create(for image: UIImage, uid : String) {
+    static func create(for image: UIImage, uid : String, success: @escaping (Bool) -> Void) {
         let imageRef = StorageReference.newPostImageReference(redditUID: uid)
         uploadImage(image, at: imageRef) { (downloadURL) in
             guard let downloadURL = downloadURL else {
-                return
+                return success(false)
             }
             
             let urlString = downloadURL.absoluteString
             let aspectHeight = image.aspectHeight
-            create(forURLString: urlString, aspectHeight: aspectHeight, redditUID: uid)
+            create(forURLString: urlString, aspectHeight: aspectHeight, redditUID: uid, completion: { (completion) in
+                success(completion)
+            })
         }
     }
     
@@ -40,7 +42,7 @@ struct PictureService {
         })
     }
     
-    private static func create(forURLString urlString: String, aspectHeight: CGFloat, redditUID: String) {
+    private static func create(forURLString urlString: String, aspectHeight: CGFloat, redditUID: String, completion: @escaping (Bool) -> Void) {
         let currentUser = User.current
         let rootRef =  Database.database().reference()
         let pictureRef = rootRef.child("users").child(currentUser.uid).child("pictures").child(redditUID)
@@ -49,5 +51,20 @@ struct PictureService {
         pictureRef.updateChildValues(picture.dictValue)
         todayRef.setValue(nil)
         todayRef.child(redditUID).setValue(picture.dictValue)
+        completion(true)
+    }
+    
+    static func showTodayPic(uid : String, completion: @escaping (Picture?) -> Void){
+        let ref = Database.database().reference().child("users").child(User.current.uid).child("todayPic")
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let todayPic = snapshot.children.allObjects.first as? DataSnapshot else{
+                return completion(nil)
+            }
+            print(snapshot.children.allObjects.first ?? "error!!!")
+            guard let picture = Picture(snapshot: todayPic) else {
+                return completion(nil)
+            }
+            completion(picture)
+        })
     }
 }

@@ -25,7 +25,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         UserService.show(forUID: User.current.uid) { (user) in
             defer {
-                print(User.current.pictures)
+//                print(User.current.pictures)
                 self.pictures = User.current.pictures
             }
             guard let user = user else {
@@ -40,14 +40,44 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func catOfDayClicked(_ sender: UIButton) {
+        sender.isEnabled = false
+        sender.setTitle("loading...", for: UIControlState.normal)
+        sender.backgroundColor = UIColor.gray
         RedditService.retreiveCatImage(completion: { (urlString, redditUID) in
+//            defer{
+//                self.collectionView.reloadData()
+//                sender.isEnabled = true
+//                sender.setTitle("Cat Pic of the Day!", for: UIControlState.normal)
+//                sender.backgroundColor = UIColor.blue
+//            }
+//            let dispatchGroup = DispatchGroup()
             if let urlString = urlString,
                let redditUID = redditUID {
                 do {
                     let url = URL(string: urlString)
                     let  data = try Data(contentsOf: url!)
                     if let image = UIImage(data: data){
-                        PictureService.create(for: image, uid: redditUID)
+//                        dispatchGroup.enter()
+                        PictureService.create(for: image, uid: redditUID, success: { (success) in
+//                            dispatchGroup.leave()
+                            PictureService.showTodayPic(uid: User.current.uid, completion: { (newPic) in
+                                guard let pic = newPic else {
+                                    return
+                                }
+                                self.pictures.append(pic)
+                                self.collectionView.reloadData()
+                                sender.isEnabled = true
+                                sender.setTitle("Cat Pic of the Day!", for: UIControlState.normal)
+                                sender.backgroundColor = UIColor.blue
+                            })
+                        })
+//                        dispatchGroup.enter()
+//                        PictureService.showTodayPic(uid: User.current.uid, completion: { (newPic) in
+//                            guard let pic = newPic else {
+//                                return
+//                            }
+//                            self.pictures.append(pic)
+//                        })
                     }
                     else {
                         print("IMGUR U POOP")
@@ -57,12 +87,15 @@ class ProfileViewController: UIViewController {
                     print(error.localizedDescription)
                 }
             }
+//            dispatchGroup.notify(queue: .main)
         })
 //        let ref = Database.database().reference().child("users").child(User.current.uid).child("todayPic")
-        
 //        ref.observeSingleEvent(of: .value, with: { (snapshot) in
 //            defer{
 //                self.collectionView.reloadData()
+//                sender.isEnabled = true
+//                sender.setTitle("Cat Pic of the Day!", for: UIControlState.normal)
+//                sender.backgroundColor = UIColor.blue
 //            }
 //            guard let todayPic = snapshot.children.allObjects.first as? DataSnapshot else{
 //                return
