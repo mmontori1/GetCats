@@ -13,7 +13,7 @@
         <!--Find Users View Controller-->
         <scene sceneID="Z7F-Th-zZ4">
             <objects>
-                <viewController title="Find Users View Controller" id="UsV-vu-7Io" sceneMemberID="viewController">
+                <viewController title="Find Users View Controller" id="UsV-vu-7Io" customClass="FriendsViewController" customModule="GetCats" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MiV-Rw-N6A"/>
                         <viewControllerLayoutGuide type="bottom" id="g6V-WX-cog"/>
@@ -21,15 +21,32 @@
                     <view key="view" contentMode="scaleToFill" id="9Iv-Kh-ANA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xaf-Em-o8v">
+                                <rect key="frame" x="87.5" y="323" width="200" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="H8v-ez-62J"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Xaf-Em-o8v" firstAttribute="centerX" secondItem="9Iv-Kh-ANA" secondAttribute="centerX" id="Ird-1D-toV"/>
+                            <constraint firstItem="Xaf-Em-o8v" firstAttribute="centerY" secondItem="9Iv-Kh-ANA" secondAttribute="centerY" id="aXW-w2-UKz"/>
+                            <constraint firstItem="Xaf-Em-o8v" firstAttribute="centerY" secondItem="9Iv-Kh-ANA" secondAttribute="centerY" id="fya-L7-vsq"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="tab_find_friends_black" id="6EK-YW-QHV">
-                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="0M3-N9-xfC"/>
+                    <connections>
+                        <outlet property="namesLabel" destination="Xaf-Em-o8v" id="kUi-Jl-aEB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NUh-Ff-egG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1297" y="422"/>
+            <point key="canvasLocation" x="2236" y="421.43928035982015"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="14C-5I-omV">
@@ -192,7 +209,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="ue0-uV-ZQt" kind="relationship" relationship="viewControllers" id="e7g-pr-qfD"/>
-                        <segue destination="UsV-vu-7Io" kind="relationship" relationship="viewControllers" id="zbR-GU-utQ"/>
+                        <segue destination="7bn-MX-aYH" kind="relationship" relationship="viewControllers" id="zbR-GU-utQ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kVR-DZ-KFX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -219,6 +236,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dYY-8h-R8N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1296.8" y="-233.43328335832086"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Pp0-VV-SZi">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7bn-MX-aYH" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="tab_find_friends_black" id="6EK-YW-QHV">
+                        <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zF1-u3-f7L">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="UsV-vu-7Io" kind="relationship" relationship="rootViewController" id="dZJ-ol-R9W"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pLn-c4-HnJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1296.8" y="421.43928035982015"/>
         </scene>
     </scenes>
     <resources>

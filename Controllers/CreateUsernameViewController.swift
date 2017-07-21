@@ -17,15 +17,18 @@ class CreateUsernameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
         usernameTextField.delegate = self
         self.imageView.image = UIImage.gif(name: "catRun")
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
-    @IBAction func createClicked(_ sender: UIButton) {
+    func dismissKeyboard(){
+        view.endEditing(true)
+    }
+
+    func createUser(){
         guard let firUser = Auth.auth().currentUser,
             let username = usernameTextField.text,
             !username.isEmpty else { return }
@@ -42,11 +45,19 @@ class CreateUsernameViewController: UIViewController {
             self.view.window?.makeKeyAndVisible()
         }
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    @IBAction func createClicked(_ sender: UIButton) {
+        createUser()
+    }
 }
 
 extension CreateUsernameViewController : UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.usernameTextField.resignFirstResponder()
+        createUser()
         return true
     }
 }

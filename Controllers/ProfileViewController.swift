@@ -18,11 +18,12 @@ class ProfileViewController: UIViewController {
         }
     }
     var todayPic : Picture?
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         UserService.show(forUID: User.current.uid) { (user) in
             defer {
                 self.pictures = User.current.pictures
@@ -79,7 +80,6 @@ extension ProfileViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CatImageCell", for: indexPath) as! CatImageCell
         let image = pictures[indexPath.row]
-        print(image.imageURL)
         let imageURL = URL(string: image.imageURL)
         cell.thumbImageView.kf.setImage(with: imageURL)
 
