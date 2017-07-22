@@ -31,6 +31,10 @@
 		01B8E6501F22F832003EC436 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 01B8E64D1F22F832003EC436 /* loading.gif */; };
 		01B8E6511F22F832003EC436 /* catDance.gif in Resources */ = {isa = PBXBuildFile; fileRef = 01B8E64E1F22F832003EC436 /* catDance.gif */; };
 		01B8E6521F22F832003EC436 /* catRun.gif in Resources */ = {isa = PBXBuildFile; fileRef = 01B8E64F1F22F832003EC436 /* catRun.gif */; };
+		01D88CBC1F2300EF00D68359 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D88CBB1F2300EF00D68359 /* FriendsTableViewCell.swift */; };
+		01D88CBE1F23082D00D68359 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01D88CBD1F23082D00D68359 /* Profile.storyboard */; };
+		01D88CC41F230CA800D68359 /* SendPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D88CC31F230CA800D68359 /* SendPictureViewController.swift */; };
+		01D88CC61F230CC200D68359 /* Friends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01D88CC51F230CC200D68359 /* Friends.storyboard */; };
 		1BF5A4FDEB75A30196F4DBAB /* Pods_GetCats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D680A8FC956791F12155E425 /* Pods_GetCats.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +65,10 @@
 		01B8E64D1F22F832003EC436 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = loading.gif; path = Images/loading.gif; sourceTree = "<group>"; };
 		01B8E64E1F22F832003EC436 /* catDance.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = catDance.gif; path = Images/catDance.gif; sourceTree = "<group>"; };
 		01B8E64F1F22F832003EC436 /* catRun.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = catRun.gif; path = Images/catRun.gif; sourceTree = "<group>"; };
+		01D88CBB1F2300EF00D68359 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendsTableViewCell.swift; path = Views/FriendsTableViewCell.swift; sourceTree = "<group>"; };
+		01D88CBD1F23082D00D68359 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = Storyboards/Profile.storyboard; sourceTree = "<group>"; };
+		01D88CC31F230CA800D68359 /* SendPictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SendPictureViewController.swift; path = Controllers/SendPictureViewController.swift; sourceTree = "<group>"; };
+		01D88CC51F230CC200D68359 /* Friends.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Friends.storyboard; path = Storyboards/Friends.storyboard; sourceTree = "<group>"; };
 		D680A8FC956791F12155E425 /* Pods_GetCats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GetCats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6643B9CDCBC4631B714E77A /* Pods-GetCats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GetCats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GetCats/Pods-GetCats.debug.xcconfig"; sourceTree = "<group>"; };
 		F321491FA9A458A22C546E88 /* Pods-GetCats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GetCats.release.xcconfig"; path = "Pods/Target Support Files/Pods-GetCats/Pods-GetCats.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +135,7 @@
 		01B8E61A1F22F6BF003EC436 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				01D88CC31F230CA800D68359 /* SendPictureViewController.swift */,
 				01B8E6291F22F75C003EC436 /* CreateUsernameViewController.swift */,
 				01B8E62A1F22F75C003EC436 /* FriendsViewController.swift */,
 				01B8E62B1F22F75C003EC436 /* ProfileViewController.swift */,
@@ -185,8 +194,10 @@
 		01B8E6201F22F71A003EC436 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				01D88CC51F230CC200D68359 /* Friends.storyboard */,
 				01B8E6361F22F792003EC436 /* Login.storyboard */,
 				01B8E6371F22F792003EC436 /* Main.storyboard */,
+				01D88CBD1F23082D00D68359 /* Profile.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -194,6 +205,7 @@
 		01B8E6311F22F76F003EC436 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				01D88CBB1F2300EF00D68359 /* FriendsTableViewCell.swift */,
 				01B8E6321F22F780003EC436 /* CatImageCell.swift */,
 				01B8E6331F22F780003EC436 /* ProfileHeaderView.swift */,
 			);
@@ -286,6 +298,8 @@
 				01B8E6511F22F832003EC436 /* catDance.gif in Resources */,
 				01B8E64B1F22F802003EC436 /* GoogleService-Info.plist in Resources */,
 				01B8E6501F22F832003EC436 /* loading.gif in Resources */,
+				01D88CC61F230CC200D68359 /* Friends.storyboard in Resources */,
+				01D88CBE1F23082D00D68359 /* Profile.storyboard in Resources */,
 				01B8E6381F22F792003EC436 /* Login.storyboard in Resources */,
 				01B8E6391F22F792003EC436 /* Main.storyboard in Resources */,
 			);
@@ -352,6 +366,7 @@
 				01B8E62D1F22F75C003EC436 /* CreateUsernameViewController.swift in Sources */,
 				01B8E6471F22F7EE003EC436 /* UIImage+Size.swift in Sources */,
 				01B8E6451F22F7EE003EC436 /* StorageReference+Picture.swift in Sources */,
+				01D88CBC1F2300EF00D68359 /* FriendsTableViewCell.swift in Sources */,
 				01B8E6351F22F780003EC436 /* ProfileHeaderView.swift in Sources */,
 				01B8E62E1F22F75C003EC436 /* FriendsViewController.swift in Sources */,
 				01B8E6411F22F7E5003EC436 /* PeerToPeerHelper.swift in Sources */,
@@ -360,6 +375,7 @@
 				01B8E6231F22F737003EC436 /* Picture.swift in Sources */,
 				01B8E63F1F22F79D003EC436 /* UserService.swift in Sources */,
 				01B8E63E1F22F79D003EC436 /* RedditService.swift in Sources */,
+				01D88CC41F230CA800D68359 /* SendPictureViewController.swift in Sources */,
 				01B8E6071F22F643003EC436 /* AppDelegate.swift in Sources */,
 				01B8E6241F22F737003EC436 /* User.swift in Sources */,
 			);
