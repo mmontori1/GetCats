@@ -101,7 +101,7 @@ class ProfileViewController: UIViewController {
     @IBAction func logOutClicked(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        let signOutAction = UIAlertAction(title: "Sign Out", style: .default) { _ in
+        let signOutAction = UIAlertAction(title: "Are you sure you want to log out?", style: .destructive) { _ in
             do {
                 try Auth.auth().signOut()
             } catch let error as NSError {

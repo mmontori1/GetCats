@@ -13,6 +13,7 @@ class FriendsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var noUsersLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var headerView: UIView!
     
     var peerService : PeerToPeerHelper?
     var nearbyUsers = [String](){
@@ -32,11 +33,13 @@ class FriendsViewController: UIViewController {
         if nearbyUsers.isEmpty {
             tableView.isHidden = true
             noUsersLabel.isHidden = false
+            headerView.isHidden = false
             imageView.isHidden = false
             imageView.image = UIImage.gif(name: "catSad")
         }
         else{
             noUsersLabel.isHidden = true
+            headerView.isHidden = true
             imageView.isHidden = true
             imageView.image = nil
             tableView.isHidden = false

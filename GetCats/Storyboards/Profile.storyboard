@@ -25,39 +25,36 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="128"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kHs-7J-LjJ">
-                                        <rect key="frame" x="115" y="17" width="144" height="94"/>
+                                        <rect key="frame" x="20" y="17" width="335" height="94"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXa-2O-QIa" userLabel="Username">
-                                                <rect key="frame" x="0.0" y="0.0" width="144" height="27"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="27"/>
                                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="19"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jV0-9W-aLA">
-                                                <rect key="frame" x="0.0" y="37" width="144" height="24"/>
+                                                <rect key="frame" x="0.0" y="37" width="335" height="24"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Cat Gold: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4z-Et-MpO">
-                                                        <rect key="frame" x="0.0" y="0.0" width="101.5" height="24"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="291.5" height="24"/>
                                                         <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DC1-fl-myX">
-                                                        <rect key="frame" x="106.5" y="0.0" width="9.5" height="24"/>
+                                                        <rect key="frame" x="296.5" y="0.0" width="9.5" height="24"/>
                                                         <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="😸" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ih-Oz-QWZ">
-                                                        <rect key="frame" x="121" y="0.0" width="23" height="24"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meowth" translatesAutoresizingMaskIntoConstraints="NO" id="s4H-hE-cck">
+                                                        <rect key="frame" x="311" y="0.0" width="24" height="24"/>
+                                                    </imageView>
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51K-uD-PS2">
-                                                <rect key="frame" x="0.0" y="71" width="144" height="23"/>
+                                                <rect key="frame" x="0.0" y="71" width="335" height="23"/>
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="16"/>
                                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -80,8 +77,8 @@
                                     <constraint firstAttribute="height" constant="128" id="1bO-Xx-e8M"/>
                                     <constraint firstItem="kHs-7J-LjJ" firstAttribute="centerX" secondItem="Ywv-0c-QTO" secondAttribute="centerX" id="3yw-RQ-EYn"/>
                                     <constraint firstItem="kHs-7J-LjJ" firstAttribute="centerY" secondItem="Ywv-0c-QTO" secondAttribute="centerY" id="6S5-Nt-zW0"/>
-                                    <constraint firstAttribute="trailing" secondItem="kHs-7J-LjJ" secondAttribute="trailing" constant="116" id="HEu-dH-aKb"/>
-                                    <constraint firstItem="kHs-7J-LjJ" firstAttribute="leading" secondItem="Ywv-0c-QTO" secondAttribute="leading" constant="115" id="xNN-Pz-0GN"/>
+                                    <constraint firstAttribute="trailing" secondItem="kHs-7J-LjJ" secondAttribute="trailing" constant="20" id="HEu-dH-aKb"/>
+                                    <constraint firstItem="kHs-7J-LjJ" firstAttribute="leading" secondItem="Ywv-0c-QTO" secondAttribute="leading" constant="20" id="xNN-Pz-0GN"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aFT-2N-9qi">
@@ -157,12 +154,12 @@
         <scene sceneID="dzF-sP-poy">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ue0-uV-ZQt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tab_profile_black" id="Xfl-t4-Wna">
+                    <tabBarItem key="tabBarItem" title="" image="cat_profile" id="Xfl-t4-Wna">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="XRW-Yf-gul">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XRW-Yf-gul">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.59607843137254901" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -178,6 +175,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="tab_profile_black" width="25" height="25"/>
+        <image name="cat_profile" width="25" height="25"/>
+        <image name="meowth" width="24" height="24"/>
     </resources>
 </document>
