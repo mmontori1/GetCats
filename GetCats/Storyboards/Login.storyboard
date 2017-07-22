@@ -157,6 +157,7 @@
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6U2-nd-tJH">
                                                 <rect key="frame" x="71" y="0.0" width="153" height="35"/>
+                                                <color key="backgroundColor" red="0.59730360243055558" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="ENn-V3-tfq"/>
                                                     <constraint firstAttribute="height" constant="35" id="ZDz-mk-ZbL"/>

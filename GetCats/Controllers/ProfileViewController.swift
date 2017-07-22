@@ -26,13 +26,17 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var catGoldCountLabel: UILabel!
     @IBOutlet weak var catOfDayButton: UIButton!
+    @IBOutlet weak var loadingImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        usernameLabel.text = User.current.username
         catOfDayButton.layer.cornerRadius = 10
+        
         UserService.show(forUID: User.current.uid) { (user) in
             defer {
                 self.pictures = User.current.pictures
+                self.catGoldCountLabel.text = String(self.pictures.count * 10)
 //                self.todayPic = User.current.todayPic
             }
             guard let user = user else {
@@ -40,6 +44,7 @@ class ProfileViewController: UIViewController {
             }
             User.setCurrent(user)
         }
+        
         authHandle = Auth.auth().addStateDidChangeListener() { [unowned self] (auth, user) in
             guard user == nil else { return }
             
@@ -63,6 +68,8 @@ class ProfileViewController: UIViewController {
         sender.isEnabled = false
         sender.setTitle("loading...", for: UIControlState.normal)
         sender.backgroundColor = UIColor.gray
+        let emptyPic = Picture(imageURL: "LOADER", imageHeight: 0.0)
+        self.pictures.append(emptyPic)
         RedditService.retreiveCatImage(completion: { (urlString, redditUID) in
             if let urlString = urlString,
                let redditUID = redditUID {
@@ -75,7 +82,8 @@ class ProfileViewController: UIViewController {
                                 guard let pic = newPic else {
                                     return
                                 }
-                                self.pictures.append(pic)
+                                self.pictures[self.pictures.count - 1] = pic
+                                self.catGoldCountLabel.text = String(self.pictures.count * 10)
                                 self.collectionView.reloadData()
                                 sender.isEnabled = true
                                 sender.setTitle("Cat Pic of the Day!", for: UIControlState.normal)
@@ -118,10 +126,13 @@ extension ProfileViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CatImageCell", for: indexPath) as! CatImageCell
         let image = pictures[indexPath.row]
-        let imageURL = URL(string: image.imageURL)
-        cell.thumbImageView.kf.setImage(with: imageURL)
-        usernameLabel.text = User.current.username
-        catGoldCountLabel.text = String(pictures.count * 10)
+        if image.imageURL != "LOADER"{
+            let imageURL = URL(string: image.imageURL)
+            cell.thumbImageView.kf.setImage(with: imageURL)
+        }
+        else{
+            cell.thumbImageView.image = UIImage.gif(name: "catLoading")
+        }
 
         return cell
     }
