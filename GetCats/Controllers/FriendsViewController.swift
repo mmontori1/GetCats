@@ -11,18 +11,37 @@ import UIKit
 class FriendsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var noUsersLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     
     var peerService : PeerToPeerHelper?
     var nearbyUsers = [String](){
         didSet{
-            tableView.reloadData()
+            updateView()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateView()
         peerService = PeerToPeerHelper()
         peerService?.delegate = self
+    }
+    
+    func updateView(){
+        if nearbyUsers.isEmpty {
+            tableView.isHidden = true
+            noUsersLabel.isHidden = false
+            imageView.isHidden = false
+            imageView.image = UIImage.gif(name: "catSad")
+        }
+        else{
+            noUsersLabel.isHidden = true
+            imageView.isHidden = true
+            imageView.image = nil
+            tableView.isHidden = false
+            tableView.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
