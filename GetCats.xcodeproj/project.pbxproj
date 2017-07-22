@@ -17,7 +17,6 @@
 		01B8E62F1F22F75C003EC436 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8E62B1F22F75C003EC436 /* ProfileViewController.swift */; };
 		01B8E6301F22F75C003EC436 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8E62C1F22F75C003EC436 /* LoginViewController.swift */; };
 		01B8E6341F22F780003EC436 /* CatImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8E6321F22F780003EC436 /* CatImageCell.swift */; };
-		01B8E6351F22F780003EC436 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8E6331F22F780003EC436 /* ProfileHeaderView.swift */; };
 		01B8E6381F22F792003EC436 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01B8E6361F22F792003EC436 /* Login.storyboard */; };
 		01B8E6391F22F792003EC436 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01B8E6371F22F792003EC436 /* Main.storyboard */; };
 		01B8E63D1F22F79D003EC436 /* PictureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B8E63A1F22F79D003EC436 /* PictureService.swift */; };
@@ -52,7 +51,6 @@
 		01B8E62B1F22F75C003EC436 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = Controllers/ProfileViewController.swift; sourceTree = "<group>"; };
 		01B8E62C1F22F75C003EC436 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controllers/LoginViewController.swift; sourceTree = "<group>"; };
 		01B8E6321F22F780003EC436 /* CatImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CatImageCell.swift; path = Views/CatImageCell.swift; sourceTree = "<group>"; };
-		01B8E6331F22F780003EC436 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileHeaderView.swift; path = Views/ProfileHeaderView.swift; sourceTree = "<group>"; };
 		01B8E6361F22F792003EC436 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = Storyboards/Login.storyboard; sourceTree = "<group>"; };
 		01B8E6371F22F792003EC436 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Storyboards/Main.storyboard; sourceTree = "<group>"; };
 		01B8E63A1F22F79D003EC436 /* PictureService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PictureService.swift; path = Services/PictureService.swift; sourceTree = "<group>"; };
@@ -213,7 +211,6 @@
 			children = (
 				01D88CBB1F2300EF00D68359 /* FriendsTableViewCell.swift */,
 				01B8E6321F22F780003EC436 /* CatImageCell.swift */,
-				01B8E6331F22F780003EC436 /* ProfileHeaderView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -375,7 +372,6 @@
 				01B8E6471F22F7EE003EC436 /* UIImage+Size.swift in Sources */,
 				01B8E6451F22F7EE003EC436 /* StorageReference+Picture.swift in Sources */,
 				01D88CBC1F2300EF00D68359 /* FriendsTableViewCell.swift in Sources */,
-				01B8E6351F22F780003EC436 /* ProfileHeaderView.swift in Sources */,
 				01B8E62E1F22F75C003EC436 /* FriendsViewController.swift in Sources */,
 				01B8E6411F22F7E5003EC436 /* PeerToPeerHelper.swift in Sources */,
 				01B8E63D1F22F79D003EC436 /* PictureService.swift in Sources */,
